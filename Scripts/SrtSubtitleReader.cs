@@ -9,23 +9,23 @@ namespace UdonLab.VideoSubtitle
 {
     public class SrtSubtitleReader : UdonSharpBehaviour
     {
-        /// <summary>
-        /// Udon Array Plus
-        /// </summary>
-        [Header("Udon Array Plus")]
-        [SerializeField] public UdonArrayPlus udonArrayPlus;
+        // /// <summary>
+        // /// Udon Array Plus
+        // /// </summary>
+        // [Header("Udon Array Plus")]
+        // [SerializeField] public UdonArrayPlus udonArrayPlus;
         /// <summary>
         /// 字幕
         /// </summary>
         [Header("字幕")]
-        [SerializeField] public VideoSubtitle[] subtitles;
+        public VideoSubtitle[] subtitles;
         void Start()
         {
-            if (udonArrayPlus == null)
-            {
-                Debug.LogError("Udon Array Plus is null");
-                return;
-            }
+            // if (udonArrayPlus == null)
+            // {
+            //     Debug.LogError("Udon Array Plus is null");
+            //     return;
+            // }
             if (subtitles == null)
             {
                 Debug.LogError("subtitles is null");
@@ -138,9 +138,9 @@ namespace UdonLab.VideoSubtitle
                         // }
                         if (startTime >= 0f && endTime >= 0f && text != "")
                         {
-                            _subtitleText = udonArrayPlus.stringsAdd(_subtitleText, text);
-                            _subtitleStartTime = udonArrayPlus.floatsAdd(_subtitleStartTime, startTime);
-                            _subtitleEndTime = udonArrayPlus.floatsAdd(_subtitleEndTime, endTime);
+                            _subtitleText = UdonArrayPlus.StringsAdd(_subtitleText, text);
+                            _subtitleStartTime = UdonArrayPlus.FloatsAdd(_subtitleStartTime, startTime);
+                            _subtitleEndTime = UdonArrayPlus.FloatsAdd(_subtitleEndTime, endTime);
                             startTime = -1f;
                             endTime = -1f;
                             text = "";
@@ -178,9 +178,9 @@ namespace UdonLab.VideoSubtitle
                     {
                         if (startTime >= 0f && endTime >= 0f && text != "")
                         {
-                            _subtitleText = udonArrayPlus.stringsAdd(_subtitleText, text);
-                            _subtitleStartTime = udonArrayPlus.floatsAdd(_subtitleStartTime, startTime);
-                            _subtitleEndTime = udonArrayPlus.floatsAdd(_subtitleEndTime, endTime);
+                            _subtitleText = UdonArrayPlus.StringsAdd(_subtitleText, text);
+                            _subtitleStartTime = UdonArrayPlus.FloatsAdd(_subtitleStartTime, startTime);
+                            _subtitleEndTime = UdonArrayPlus.FloatsAdd(_subtitleEndTime, endTime);
                             startTime = -1f;
                             endTime = -1f;
                             text = "";
@@ -196,9 +196,9 @@ namespace UdonLab.VideoSubtitle
             }
             if (startTime >= 0f && endTime >= 0f && text != "")
             {
-                _subtitleText = udonArrayPlus.stringsAdd(_subtitleText, text);
-                _subtitleStartTime = udonArrayPlus.floatsAdd(_subtitleStartTime, startTime);
-                _subtitleEndTime = udonArrayPlus.floatsAdd(_subtitleEndTime, endTime);
+                _subtitleText = UdonArrayPlus.StringsAdd(_subtitleText, text);
+                _subtitleStartTime = UdonArrayPlus.FloatsAdd(_subtitleStartTime, startTime);
+                _subtitleEndTime = UdonArrayPlus.FloatsAdd(_subtitleEndTime, endTime);
             }
             Debug.Log($"name: {subtitle.name}, text Length: {_subtitleText.Length}");
             subtitle.subtitleText = _subtitleText;

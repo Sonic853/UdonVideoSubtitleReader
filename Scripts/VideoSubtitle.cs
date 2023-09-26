@@ -12,7 +12,7 @@ namespace UdonLab.VideoSubtitle
         /// 字幕文件
         /// </summary>
         [Header("字幕文件")]
-        [SerializeField] public TextAsset subtitleFile;
+        public TextAsset subtitleFile;
         /// <summary>
         /// 字幕文本
         /// </summary>
@@ -36,6 +36,6 @@ namespace UdonLab.VideoSubtitle
         /// 偏移
         /// </summary>
         [Header("偏移")]
-        [SerializeField] public float offset = 0f;
+        public float offset = 0f;
     }
 }
